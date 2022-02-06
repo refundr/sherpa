@@ -1,0 +1,15 @@
+
+<!-- <div class="container" *ngFor="let productArray of products; let i = index">
+  <div class="card-{{i}}" *ngFor="let product of productArray; let j = index">
+    <div class="box-{{j}}">
+      <p>{{ product.meta.name }}</p>
+    </div>
+  </div>
+</div> -->
+
+<div class="product-container">
+  <div class="product product-{{i}}" *ngFor="let product of products; let i = index">
+      <p>{{ product.meta.name }}</p>
+      <!-- <p>{{ product.meta.text }}</p> -->
+  </div>
+</div>

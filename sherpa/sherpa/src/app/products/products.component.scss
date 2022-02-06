@@ -1,0 +1,17 @@
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  grid-template-rows: auto;
+  grid-gap: 1.5rem;
+  grid-row-gap: 3rem;
+  padding: 1rem;
+}
+
+.product {
+  background-color: #222426;
+  box-shadow: 0 3px 28px #646b841a;
+  border: none;
+  cursor: pointer;
+  color: white;
+  padding: 10px;
+}
