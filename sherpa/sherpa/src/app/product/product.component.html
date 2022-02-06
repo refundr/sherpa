@@ -1,0 +1,8 @@
+<button (click)="onClick($event)" class="button">
+  <p class="title">{{ product?.meta?.name }}</p>
+  <p>{{ product?.price?.currency}} ${{product?.price?.value}}</p>
+  <p>Maximum stay: {{ product?.lengthOfStay }}</p>
+  <p>Entries: {{(product?.numberOfEntries || [])[0] | titlecase}}</p>
+</button>
+
+

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../model/Product';
 import { ProductService } from '../product.service';
 import * as _ from 'lodash';
+
 
 @Component({
   selector: 'products',
@@ -10,6 +11,9 @@ import * as _ from 'lodash';
 })
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
+
+  @Input()
+  productId: string = "";
 
   constructor(private productService: ProductService) {}
 
@@ -21,6 +25,10 @@ export class ProductsComponent implements OnInit {
     this.productService.fetchProducts().subscribe((products) => {
       this.products = products;
     });
+  }
+
+  onClick(event?: MouseEvent) {
+    alert(event?.currentTarget)
   }
 
   // fetchProductsByChunkSize(chunkSize: number): void {
