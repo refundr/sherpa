@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../model/Product';
-import Swal from 'sweetalert2';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ProductModalComponent } from '../product-modal/product-modal.component';
 
 @Component({
   selector: 'product',
@@ -8,16 +9,18 @@ import Swal from 'sweetalert2';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit {
-
   @Input() product: Product | undefined;
 
-  constructor() {}
+  constructor(private modalService: NgbModal) {}
 
   ngOnInit(): void {
     console.log('product => ', this.product?.productId);
   }
 
-  onClick(event?: MouseEvent) {
-    Swal.fire(this.product?.meta.name, this.product?.meta.text);
+  open(event?: MouseEvent) {
+      const modalRef = this.modalService.open(ProductModalComponent, { size: 'lg' });
+      modalRef.componentInstance.product = this.product;
   }
 }
+
+
