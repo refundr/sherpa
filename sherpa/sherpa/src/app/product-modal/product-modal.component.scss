@@ -1,0 +1,22 @@
+.evisa-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  grid-template-rows: auto;
+  grid-gap: 1.5rem;
+  grid-row-gap: 3rem;
+  padding: 1rem;
+
+  .evisa-attribute {
+    .title {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.8;
+    }
+
+    .value {
+      font: 500 18px/24px Roboto;
+      letter-spacing: normal;
+      margin: 0 0 16px;
+    }
+  }
+}
