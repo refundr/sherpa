@@ -11,6 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductModalComponent } from './product-modal/product-modal.component';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
+import { CurrencyComponent } from './currency/currency.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CartItemComponent } from './cart-item/cart-item.component';
     ProductModalComponent,
     CartComponent,
     CartItemComponent,
+    CurrencyComponent,
   ],
   imports: [
     BrowserModule,

@@ -12,9 +12,6 @@ import * as _ from 'lodash';
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
 
-  @Input()
-  productId: string = "";
-
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
@@ -25,10 +22,6 @@ export class ProductsComponent implements OnInit {
     this.productService.fetchProducts().subscribe((products) => {
       this.products = products;
     });
-  }
-
-  onClick(event?: MouseEvent) {
-    alert(event?.currentTarget)
   }
 
   // fetchProductsByChunkSize(chunkSize: number): void {

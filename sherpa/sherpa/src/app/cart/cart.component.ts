@@ -10,8 +10,6 @@ import { CartItem } from '../model/CartItem'
 export class CartComponent implements OnInit {
   items: CartItem[] = [];
 
-  message: string = "";
-
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {

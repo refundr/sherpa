@@ -10,7 +10,7 @@ export class CartService {
   items: CartItem[] = [];
 
   private itemsSource = new BehaviorSubject<CartItem[]>(this.items);
-  currentMessage = this.itemsSource.asObservable();
+  currentItems = this.itemsSource.asObservable();
 
   addToList(item: CartItem) {
     this.items.push(item);
@@ -36,9 +36,9 @@ export class CartService {
       price: 30,
     };
 
-    this.add(cartItem1);
-    this.add(cartItem2);
-    this.add(cartItem3);
+    // this.add(cartItem1);
+    // this.add(cartItem2);
+    // this.add(cartItem3);
   }
 
   add(item: CartItem) {

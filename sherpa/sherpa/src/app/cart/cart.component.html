@@ -1,7 +1,9 @@
+
+
 <div id="cart">
-  <h3>Shopping Cart {{ message }}</h3>
+  <h4 class="title">Shopping Cart</h4>
   <div class="items" *ngFor="let item of items;">
     <cart-item (onDelete)=onDelete(item.productId) [item]="item"></cart-item>
   </div>
-  <div *ngIf="!items.length">YOUR SHOPPING CART IS EMPTY</div>
+  <div *ngIf="!items.length"><b>YOUR SHOPPING CART IS EMPTY</b></div>
 </div>
