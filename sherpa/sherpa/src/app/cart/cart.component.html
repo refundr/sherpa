@@ -1,0 +1,6 @@
+<div id="cart">
+  <h3>Shopping Cart</h3>
+  <div class="items" *ngFor="let item of items;">
+    <cart-item (onDelete)=onDelete(item.productId) [item]="item"></cart-item>
+  </div>
+</div>

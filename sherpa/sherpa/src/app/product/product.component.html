@@ -3,6 +3,8 @@
   <p>{{ product?.price?.currency}} ${{product?.price?.value}}</p>
   <p>Maximum stay: {{ product?.lengthOfStay }}</p>
   <p>Entries: {{(product?.numberOfEntries || [])[0] | titlecase}}</p>
+  <div (click)="addToCart($event)" class="addCartButton">Purchase</div>
 </button>
+
 
 

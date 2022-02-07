@@ -18,8 +18,15 @@ export class ProductComponent implements OnInit {
   }
 
   open(event?: MouseEvent) {
-      const modalRef = this.modalService.open(ProductModalComponent, { size: 'lg' });
-      modalRef.componentInstance.product = this.product;
+    const modalRef = this.modalService.open(ProductModalComponent, {
+      size: 'lg',
+    });
+    modalRef.componentInstance.product = this.product;
+  }
+
+  addToCart(event?: MouseEvent) {
+    
+    event?.stopPropagation();
   }
 }
 

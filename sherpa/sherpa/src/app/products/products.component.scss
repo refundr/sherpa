@@ -1,13 +1,11 @@
-.product-container {
+#product-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
   grid-template-rows: auto;
   grid-gap: 1.5rem;
-  grid-row-gap: 3rem;
-  padding: 1rem;
 }
 
-.product-container .product {
+#product-container .product {
   width:100%;
   padding: 10px;
   margin: 0;
