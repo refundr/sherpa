@@ -1,13 +1,21 @@
 import { Injectable } from '@angular/core';
 import { CartItem } from './model/CartItem';
 import { v4 as uuidv4 } from 'uuid';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
   items: CartItem[] = [];
+
+  private itemsSource = new BehaviorSubject<CartItem[]>(this.items);
+  currentMessage = this.itemsSource.asObservable();
+
+  addToList(item: CartItem) {
+    this.items.push(item);
+    this.itemsSource.next(this.items);
+  }
 
   constructor() {
     const cartItem1 = {
@@ -33,16 +41,16 @@ export class CartService {
     this.add(cartItem3);
   }
 
-  list(): Observable<CartItem[]> {
-    return of(this.items);
-  }
-
   add(item: CartItem) {
     this.items.push(item);
   }
 
-  remove(itemToBeRemoved: CartItem) {
-    console.log(itemToBeRemoved.productId);
-    this.items = [];
+  list(): Observable<CartItem[]> {
+    return of(this.items);
+  }
+
+  remove(itemToBeRemoved: string) {
+    this.items = this.items.filter((item) => item.productId !== itemToBeRemoved);
+    this.itemsSource.next(this.items);
   }
 }

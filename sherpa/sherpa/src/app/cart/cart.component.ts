@@ -10,6 +10,8 @@ import { CartItem } from '../model/CartItem'
 export class CartComponent implements OnInit {
   items: CartItem[] = [];
 
+  message: string = "";
+
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
@@ -23,6 +25,7 @@ export class CartComponent implements OnInit {
   }
 
   onDelete(productId: string) {
-    this.items = this.items.filter(item => item.productId !== productId);
+    this.cartService.remove(productId)
+    this.fetchItems()
   }
 }

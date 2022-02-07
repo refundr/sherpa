@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../model/Product';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProductModalComponent } from '../product-modal/product-modal.component';
+import { CartService } from '../cart.service';
+import { CartItem } from '../model/CartItem';
 
 @Component({
   selector: 'product',
@@ -11,10 +13,9 @@ import { ProductModalComponent } from '../product-modal/product-modal.component'
 export class ProductComponent implements OnInit {
   @Input() product: Product | undefined;
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, private cartService: CartService) {}
 
   ngOnInit(): void {
-    console.log('product => ', this.product?.productId);
   }
 
   open(event?: MouseEvent) {
@@ -25,7 +26,13 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(event?: MouseEvent) {
-    
+    const cartItem: CartItem = {
+      productId: this.product?.productId || '',
+      name: this.product?.meta.name || '',
+      price: this.product?.price.value || 0,
+    };
+
+    this.cartService.addToList(cartItem);
     event?.stopPropagation();
   }
 }
